@@ -1,0 +1,17 @@
+{
+	"pluginName": "War3 Tool",
+	"pluginNameLite": "W3TL",
+	"statusBarItemInit": "Status bar",
+	"localizeInit": "localization",
+	"addonInfoInit": "Addon path",
+	"listenerAbilityExcelInit": "Listen ability excel change",
+	"listenerUnitExcelInit": "Listen unit excel change",
+	"generateFinish": "Done!",
+	"allLoaded": "All done!",
+	"confirm": "confirm",
+	"cancel": "cancel",
+	"path_no_found": "Path does not exist",
+	"sure create folder": "Create folder?",
+	"war3tools.showOutput": "Show output channel",
+	"war3tools.welcomePage": "Quick start"
+}
