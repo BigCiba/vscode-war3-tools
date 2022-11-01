@@ -38,8 +38,14 @@ export function writeKeyValueLua(obj: any, depth: number = 1, tab: number = 12) 
 		if (value === undefined || value === null || (typeof (value) === "object" && Object.keys(value).length === 0)) {
 		} else if (typeof (value) === 'string') {
 			str += addDepthTab(depth, '["' + key + '"] = ');
-			if (value.indexOf(" ") != -1) {
-				str += '{' + value.replace(/\s/g, ",") + '},' + os.EOL;
+			if (value.indexOf(" ") !== -1) {
+				str += '{' + value.split(" ").map((a) => {
+					if (isNumber(a)) {
+						return a;
+					} else {
+						return `"${a}"`;
+					}
+				}).join(",") + '},' + os.EOL;
 			} else if (isNumber(value)) {
 				str += value + "," + os.EOL;
 			} else {
