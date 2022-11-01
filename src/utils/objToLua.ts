@@ -43,7 +43,7 @@ export function writeKeyValueLua(obj: any, depth: number = 1, tab: number = 12) 
 			} else if (isNumber(value)) {
 				str += value + "," + os.EOL;
 			} else {
-				str += '"' + value + '",' + os.EOL;
+				str += '[[' + value + ']],' + os.EOL;
 			}
 		} else {
 			str += addDepthTab(depth, '["' + key + '"] = {' + os.EOL);
