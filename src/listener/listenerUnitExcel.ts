@@ -9,6 +9,7 @@ import { eachExcelConfig, excel2kv } from "../command/cmdExcel2KV";
 import { unitCSV2KV } from "../utils/csvUtils";
 import { showStatusBarMessage } from "../module/statusBar";
 import { writeKeyValue } from "../utils/kvUtils";
+import { obj2Lua } from "../utils/objToLua";
 
 let eventID: number;
 let fileWatcher: fs.FSWatcher | undefined;
@@ -47,7 +48,7 @@ function startWatch(context: vscode.ExtensionContext) {
 					eachExcelConfig(unitExcelConfig, (kvDir, excelDir) => {
 						if (path.normalize(excelDir) == path.normalize(path.dirname(name)).replace("\\csv", "")) {
 							const kvName = path.join(kvDir, path.basename(name).replace(path.extname(name), '.lua'));
-							fs.writeFileSync(kvName, writeKeyValue({ KeyValue: unitCSV2KV(name) }));
+							fs.writeFileSync(kvName, obj2Lua(unitCSV2KV(name)));
 							showStatusBarMessage("[excel导出kv]：" + path.basename(name).replace(path.extname(name), '.lua'));
 							// excel2kv(kvDir, excelDir, unitCSV2KV);
 							return false;
