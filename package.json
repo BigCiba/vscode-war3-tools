@@ -2,7 +2,7 @@
   "name": "vscode-war3-tools",
   "displayName": "月之底war3工具",
   "description": "月之底war3工具",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "icon": "images/logo.png",
   "publisher": "bigciba",
   "engines": {
